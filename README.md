@@ -19,14 +19,7 @@ exports["dl-context"]:OpenContext(
             label = "Label",
             description = "description",
             settings = {
-                event = "dl-mechanic:RepairVehicle",
-            }
-        },
-        {
-            label = "Label2",
-            description = "description",
-            settings = {
-                event = "dl-mechanic:RepairVehicle",
+                event = "",
             }
         }
     }
