@@ -10,6 +10,29 @@ Add `dl-context` resource to your server resources
 ensure dl-context
 ```
 
+## Usage
+
+```lua
+exports["dl-context"]:OpenContext(
+    {
+        {
+            label = "Label",
+            description = "description",
+            settings = {
+                event = "dl-mechanic:RepairVehicle",
+            }
+        },
+        {
+            label = "Label2",
+            description = "description",
+            settings = {
+                event = "dl-mechanic:RepairVehicle",
+            }
+        }
+    }
+)
+```
+
 ## Pull request
 
 Pull requests are welcome. for major changes, please open an issu first to discuss what you would like to change.
