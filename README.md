@@ -16,6 +16,7 @@ ensure dl-context
 exports["dl-context"]:OpenContext(
     {
         {
+            id = 1,
             label = "Label",
             description = "description",
             settings = {
