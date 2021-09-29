@@ -1,3 +1,9 @@
+function OpenContext(content)
+    if not content then return end
+    SetNuiFocus(true, true)
+    SendNUIMessage({action = "open_context", data = content})
+end
+
 RegisterNUICallback("OnClick", function(content, cb)
     SetNuiFocus(false, false)
     if content.server then
@@ -21,19 +27,4 @@ end)
 
 RegisterNUICallback("CloseContext", function()
     SetNuiFocus(false)
-end)
-
-function OpenContext(content)
-    if not content then return end
-    SetNuiFocus(true, true)
-    SendNUIMessage({action = "open_context", data = content})
-end
-
-RegisterNetEvent("dl-context:sendMenu", function(data)
-    if not data then return end
-    SetNuiFocus(true, true)
-    SendNUIMessage({
-        action = "open_context",
-        data = data
-    })
 end)
