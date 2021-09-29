@@ -3,33 +3,22 @@ let Buttons = [];
 let Button = [];
 
 window.addEventListener("message", (event) => {
-    switch (event.data.action) {
-        case "open_context":
-            OpenContext(event.data.data);
-            break;
-        case "close_context":
-            CloseContext();
-            break;
-        default:
-        return;
-    }
+    if (event.data.type === "open_context") {
+        CreateContext(event.data.data)
+    };
 });
-
-function OpenContext(data) {
-    CreateContext(data);
-};
 
 function CreateContext(data) {
     ButtonsData = data;
     for (let i = 0; i < ButtonsData.length; i++) {
-        let header = ButtonsData[i].label;
-        let message = ButtonsData[i].description;
         let id = ButtonsData[i].id;
-        let element = $(`<div class="button" id=` + id +`><div class="header" id=` + id +`>` + header + `</div><div class="desc" id=` + id + `>` + message + `</div></div>`);
+        let label = ButtonsData[i].label;
+        let description = ButtonsData[i].description;
+        let element = $(`<div class="button" id=` + id +`><div class="header" id=` + id +`>` + label + `</div><div class="desc" id=` + id + `>` + description + `</div></div>`);
         $("#buttons").append(element);
         Buttons[id] = element;
         if (ButtonsData[i].settings) {
-            Button[id] = ButtonsData[i].settings;
+            Button[id] = ButtonsData[i].settings
         };
     };
 };
@@ -58,8 +47,8 @@ $(document).click(function(event){
     let $target = $(event.target);
     if ($target.closest(".button").length && $(".button").is(":visible")) {
         let id = event.target.id;
-        if (!Button[id]) return
-        OnClick(id)
+        if (!Button[id]) return 
+        OnClick(id);
     }
 });
 
